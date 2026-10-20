@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "StoreStar",
+    "slug": "StoreStar",
+    "version": "1.0.0",
+    "web": {
+      "favicon": "./app/assets/icon.png"
+    }
+  }
+}
