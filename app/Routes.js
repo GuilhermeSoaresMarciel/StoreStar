@@ -11,7 +11,7 @@ export default function Routes() {
       <Stack.Navigator initialRouteName="App">
         <Stack.Screen
           options={{ headerShown: false }}
-          name="App"
+          name="StoreStar"
           component={App}
         />
       </Stack.Navigator>
