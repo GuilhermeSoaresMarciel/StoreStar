@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, ScrollView } from "react-native";
+import { StyleSheet, View, Text, ScrollView, Image } from "react-native";
 
 import defaultStyles from "./../utils/defaultStyles";
 
@@ -52,6 +52,7 @@ export default function PageTerms() {
         contentContainerStyle={styles.pageMain}
       >
         <View style={styles.hero}>
+          <Image style={styles.icon} source={require("./../assets/icon.png")} />
           <Text style={styles.brand}>
             <Text style={styles.brandAccent}>Termos</Text> de uso
           </Text>
@@ -139,5 +140,9 @@ const styles = StyleSheet.create({
   footerName: {
     color: textPrimary,
     fontWeight: "bold",
+  },
+  icon: {
+    width: 150,
+    height: 150,
   },
 });
