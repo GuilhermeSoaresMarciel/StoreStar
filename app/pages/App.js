@@ -7,7 +7,22 @@ import {
   Pressable,
 } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
+
 import defaultStyles from "./../utils/defaultStyles";
+
+const {
+  background,
+  surface,
+  border,
+  textPrimary,
+  textOnAccent,
+  accent,
+  accentSecondary,
+  padding,
+  gap,
+  borderRadius,
+} = defaultStyles;
 
 const name = "StoreStar";
 
@@ -44,6 +59,15 @@ function SectionTitle({ children }) {
   return <Text style={styles.sectionTitle}>{children}</Text>;
 }
 
+function StatItem({ value, label }) {
+  return (
+    <View style={styles.stat}>
+      <Text style={styles.statValue}>{value}</Text>
+      <Text style={styles.statLabel}>{label}</Text>
+    </View>
+  );
+}
+
 function FeatureCard({ icon, title, text }) {
   return (
     <View style={styles.card}>
@@ -59,6 +83,12 @@ function FeatureCard({ icon, title, text }) {
 }
 
 export default function App() {
+  const navigation = useNavigation();
+
+  function handleStart() {}
+
+  function handleTerms() {}
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -82,7 +112,7 @@ export default function App() {
           </Text>
 
           <Pressable
-            onPress={() => {}}
+            onPress={handleStart}
             style={({ pressed }) => [
               styles.button,
               pressed && styles.buttonPressed,
@@ -94,10 +124,7 @@ export default function App() {
 
         <View style={styles.statsRow}>
           {stats.map((item) => (
-            <View key={item.label} style={styles.stat}>
-              <Text style={styles.statValue}>{item.value}</Text>
-              <Text style={styles.statLabel}>{item.label}</Text>
-            </View>
+            <StatItem key={item.label} {...item} />
           ))}
         </View>
 
@@ -122,8 +149,17 @@ export default function App() {
           </Text>
         </View>
 
+        <Pressable
+          onPress={() => {
+            navigation.navigate("Terms");
+          }}
+        >
+          <Text style={styles.terms}>terms of use [ Here ]</Text>
+        </Pressable>
+
         <Text style={styles.footer}>
-          Developed by: Guilherme Soares marciel
+          Developed by:{" "}
+          <Text style={styles.footerName}>Guilherme Soares Marciel</Text>
         </Text>
       </ScrollView>
     </View>
@@ -133,61 +169,65 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: defaultStyles.background,
+    backgroundColor: background,
   },
+
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: defaultStyles.surface,
-    padding: defaultStyles.padding,
+    backgroundColor: surface,
+    padding,
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    color: defaultStyles.textPrimary,
+    color: textPrimary,
   },
   icon: {
     width: 50,
     height: 50,
   },
+
   pageMain: {
     flexGrow: 1,
-    padding: defaultStyles.padding * 2,
-    gap: defaultStyles.gap * 3,
+    padding: padding * 2,
+    gap: gap * 3,
   },
+
   hero: {
     alignItems: "center",
-    gap: defaultStyles.gap,
-    paddingVertical: defaultStyles.padding * 2,
+    gap,
+    paddingVertical: padding * 2,
   },
   brand: {
     fontSize: 48,
     fontWeight: "bold",
-    color: defaultStyles.textPrimary,
+    color: textPrimary,
   },
   brandAccent: {
-    color: defaultStyles.accent,
+    color: accent,
   },
   tagline: {
     fontSize: 22,
     fontWeight: "600",
-    color: defaultStyles.accentSecondary,
+    color: accentSecondary,
     textAlign: "center",
   },
   description: {
     fontSize: 16,
     lineHeight: 24,
-    color: defaultStyles.textPrimary,
+    color: textPrimary,
     textAlign: "center",
     opacity: 0.9,
   },
+
   button: {
-    marginTop: defaultStyles.gap,
-    backgroundColor: defaultStyles.accent,
-    paddingVertical: defaultStyles.padding * 1.5,
-    paddingHorizontal: defaultStyles.padding * 3,
-    borderRadius: defaultStyles.borderRadius * 3,
+    marginTop: gap,
+    backgroundColor: accent,
+    paddingVertical: padding * 1.5,
+    paddingHorizontal: padding * 3,
+    borderRadius: borderRadius * 3,
   },
   buttonPressed: {
     opacity: 0.8,
@@ -196,56 +236,59 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: defaultStyles.textOnAccent,
+    color: textOnAccent,
   },
+
   statsRow: {
     flexDirection: "row",
-    gap: defaultStyles.gap,
+    gap,
   },
   stat: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: defaultStyles.border,
-    borderRadius: defaultStyles.borderRadius,
-    paddingVertical: defaultStyles.padding * 1.5,
-    paddingHorizontal: defaultStyles.padding / 2,
     gap: 4,
+    backgroundColor: border,
+    borderRadius,
+    paddingVertical: padding * 1.5,
+    paddingHorizontal: padding / 2,
   },
   statValue: {
     fontSize: 22,
     fontWeight: "bold",
-    color: defaultStyles.accent,
+    color: accent,
   },
   statLabel: {
     fontSize: 12,
-    color: defaultStyles.textPrimary,
+    color: textPrimary,
     textAlign: "center",
   },
+
   section: {
-    gap: defaultStyles.gap * 1.5,
+    gap: gap * 1.5,
   },
   sectionTitle: {
     fontSize: 22,
     fontWeight: "bold",
-    color: defaultStyles.textPrimary,
+    color: textPrimary,
   },
+
   card: {
     flexDirection: "row",
     alignItems: "center",
-    gap: defaultStyles.gap * 1.5,
-    backgroundColor: defaultStyles.surface,
-    borderRadius: defaultStyles.borderRadius * 1.5,
-    padding: defaultStyles.padding * 1.5,
+    gap: gap * 1.5,
+    backgroundColor: surface,
+    borderRadius: borderRadius * 1.5,
+    padding: padding * 1.5,
     borderWidth: 1,
-    borderColor: defaultStyles.border,
+    borderColor: border,
   },
   cardIcon: {
     width: 52,
     height: 52,
-    borderRadius: defaultStyles.borderRadius * 1.5,
-    backgroundColor: defaultStyles.border,
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: border,
+    borderRadius: borderRadius * 1.5,
   },
   cardIconText: {
     fontSize: 26,
@@ -257,32 +300,45 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 16,
     fontWeight: "bold",
-    color: defaultStyles.accent,
+    color: accent,
   },
   cardText: {
     fontSize: 14,
     lineHeight: 20,
-    color: defaultStyles.textPrimary,
+    color: textPrimary,
     opacity: 0.85,
   },
+
   about: {
-    gap: defaultStyles.gap * 1.5,
-    backgroundColor: defaultStyles.surface,
-    borderRadius: defaultStyles.borderRadius * 2,
-    padding: defaultStyles.padding * 2,
+    gap: gap * 1.5,
+    backgroundColor: surface,
+    borderRadius: borderRadius * 2,
+    padding: padding * 2,
     borderLeftWidth: 4,
-    borderLeftColor: defaultStyles.accent,
+    borderLeftColor: accent,
   },
   aboutText: {
     fontSize: 15,
     lineHeight: 23,
-    color: defaultStyles.textPrimary,
+    color: textPrimary,
     opacity: 0.9,
+  },
+
+  terms: {
+    fontSize: 15,
+    color: accent,
+    textAlign: "center",
+    textDecorationLine: "underline",
+    padding,
   },
   footer: {
     fontSize: 15,
-    color: defaultStyles.accentSecondary,
+    color: accentSecondary,
     textAlign: "center",
-    paddingBottom: defaultStyles.padding * 2,
+    padding: padding / 5,
+  },
+  footerName: {
+    color: textPrimary,
+    fontWeight: "bold",
   },
 });
