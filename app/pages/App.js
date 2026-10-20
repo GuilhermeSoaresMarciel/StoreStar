@@ -154,7 +154,7 @@ export default function App() {
             navigation.navigate("Terms");
           }}
         >
-          <Text style={styles.terms}>terms of use</Text>
+          <Text style={styles.terms}>Terms of use</Text>
         </Pressable>
 
         <Text style={styles.footer}>
