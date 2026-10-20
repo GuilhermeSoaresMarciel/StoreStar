@@ -1,21 +1,17 @@
-const valueDefault = 10;
-
 const defaultStyles = {
-  bg: "rgb(68, 71, 90)",
-  bg2: "rgb(40, 42, 54)",
+  background: "rgb(40, 42, 54)",
+  surface: "rgb(68, 71, 90)",
+  border: "rgb(52, 55, 70)",
 
-  colorMain: "rgb(248, 248, 242)",
-  colorOn: "rgb(189, 147, 249)",
-  colorMuted: "rgb(139, 233, 253)",
-  colorInk: "rgb(40, 42, 54)",
+  textPrimary: "rgb(248, 248, 242)",
+  textOnAccent: "rgb(40, 42, 54)",
 
-  grid: "rgb(52, 55, 70)",
+  accent: "rgb(189, 147, 249)",
+  accentSecondary: "rgb(139, 233, 253)",
 
-  padding: valueDefault,
-
-  gap: valueDefault,
-
-  borderRadius: valueDefault,
+  padding: 10,
+  gap: 10,
+  borderRadius: 10,
 };
 
 export default defaultStyles;

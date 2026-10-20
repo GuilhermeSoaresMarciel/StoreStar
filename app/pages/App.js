@@ -82,6 +82,7 @@ export default function App() {
           </Text>
 
           <Pressable
+            onPress={() => {}}
             style={({ pressed }) => [
               styles.button,
               pressed && styles.buttonPressed,
@@ -132,19 +133,19 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: defaultStyles.bg,
+    backgroundColor: defaultStyles.background,
   },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: defaultStyles.bg2,
+    backgroundColor: defaultStyles.surface,
     padding: defaultStyles.padding,
   },
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    color: defaultStyles.colorMain,
+    color: defaultStyles.textPrimary,
   },
   icon: {
     width: 50,
@@ -163,27 +164,27 @@ const styles = StyleSheet.create({
   brand: {
     fontSize: 48,
     fontWeight: "bold",
-    color: defaultStyles.colorMain,
+    color: defaultStyles.textPrimary,
   },
   brandAccent: {
-    color: defaultStyles.colorOn,
+    color: defaultStyles.accent,
   },
   tagline: {
     fontSize: 22,
     fontWeight: "600",
-    color: defaultStyles.colorMuted,
+    color: defaultStyles.accentSecondary,
     textAlign: "center",
   },
   description: {
     fontSize: 16,
     lineHeight: 24,
-    color: defaultStyles.colorMain,
+    color: defaultStyles.textPrimary,
     textAlign: "center",
     opacity: 0.9,
   },
   button: {
     marginTop: defaultStyles.gap,
-    backgroundColor: defaultStyles.colorOn,
+    backgroundColor: defaultStyles.accent,
     paddingVertical: defaultStyles.padding * 1.5,
     paddingHorizontal: defaultStyles.padding * 3,
     borderRadius: defaultStyles.borderRadius * 3,
@@ -195,7 +196,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: defaultStyles.colorInk,
+    color: defaultStyles.textOnAccent,
   },
   statsRow: {
     flexDirection: "row",
@@ -204,7 +205,7 @@ const styles = StyleSheet.create({
   stat: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: defaultStyles.grid,
+    backgroundColor: defaultStyles.border,
     borderRadius: defaultStyles.borderRadius,
     paddingVertical: defaultStyles.padding * 1.5,
     paddingHorizontal: defaultStyles.padding / 2,
@@ -213,11 +214,11 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 22,
     fontWeight: "bold",
-    color: defaultStyles.colorOn,
+    color: defaultStyles.accent,
   },
   statLabel: {
     fontSize: 12,
-    color: defaultStyles.colorMain,
+    color: defaultStyles.textPrimary,
     textAlign: "center",
   },
   section: {
@@ -226,23 +227,23 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 22,
     fontWeight: "bold",
-    color: defaultStyles.colorMain,
+    color: defaultStyles.textPrimary,
   },
   card: {
     flexDirection: "row",
     alignItems: "center",
     gap: defaultStyles.gap * 1.5,
-    backgroundColor: defaultStyles.bg2,
+    backgroundColor: defaultStyles.surface,
     borderRadius: defaultStyles.borderRadius * 1.5,
     padding: defaultStyles.padding * 1.5,
     borderWidth: 1,
-    borderColor: defaultStyles.grid,
+    borderColor: defaultStyles.border,
   },
   cardIcon: {
     width: 52,
     height: 52,
     borderRadius: defaultStyles.borderRadius * 1.5,
-    backgroundColor: defaultStyles.grid,
+    backgroundColor: defaultStyles.border,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -256,31 +257,31 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 16,
     fontWeight: "bold",
-    color: defaultStyles.colorOn,
+    color: defaultStyles.accent,
   },
   cardText: {
     fontSize: 14,
     lineHeight: 20,
-    color: defaultStyles.colorMain,
+    color: defaultStyles.textPrimary,
     opacity: 0.85,
   },
   about: {
     gap: defaultStyles.gap * 1.5,
-    backgroundColor: defaultStyles.bg2,
+    backgroundColor: defaultStyles.surface,
     borderRadius: defaultStyles.borderRadius * 2,
     padding: defaultStyles.padding * 2,
     borderLeftWidth: 4,
-    borderLeftColor: defaultStyles.colorOn,
+    borderLeftColor: defaultStyles.accent,
   },
   aboutText: {
     fontSize: 15,
     lineHeight: 23,
-    color: defaultStyles.colorMain,
+    color: defaultStyles.textPrimary,
     opacity: 0.9,
   },
   footer: {
-    fontSize: 12,
-    color: defaultStyles.colorMuted,
+    fontSize: 15,
+    color: defaultStyles.accentSecondary,
     textAlign: "center",
     paddingBottom: defaultStyles.padding * 2,
   },
